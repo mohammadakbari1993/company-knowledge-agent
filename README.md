@@ -6,6 +6,14 @@ The application allows users to ask questions about company policies, product in
 
 ---
 
+## Screenshots
+
+### Main Interface
+
+![Main UI](/public/screenshot-2.png)
+
+---
+
 ## Project Goal
 
 Build a simple but maintainable knowledge bot while demonstrating:
