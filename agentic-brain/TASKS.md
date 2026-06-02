@@ -5,13 +5,12 @@
 - [x] Initialize Next.js project
 - [x] Create company documents
 - [x] Create agentic-brain structure
-
-## In Progress
-
-- [ ] Build document retrieval service
+- [x] Build document retrieval service
+- [x] Build chat API
+- [x] Build user interface
 
 ## Pending
 
-- [ ] Build chat interface
-- [ ] Add evaluation tests
-- [ ] Write README
+- [ ] Finalize README
+- [ ] Capture screenshots
+- [ ] Record demo video

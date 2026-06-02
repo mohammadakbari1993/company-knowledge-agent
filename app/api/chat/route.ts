@@ -15,8 +15,14 @@ export async function POST(req: NextRequest) {
 
   const match = findBestMatch(question);
 
+  const cleanedAnswer = match?.content
+    ?.split("\n\n")
+    .slice(1)
+    .join("\n\n")
+    .trim();
+
   return NextResponse.json({
-    answer: match?.content || "No relevant information found.",
-    source: match?.name || null,
+    answer: cleanedAnswer || "No relevant information found.",
+    source: match?.source || null,
   });
 }

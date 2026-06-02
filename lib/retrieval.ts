@@ -13,15 +13,15 @@ export function getDocuments() {
 }
 
 export function findBestMatch(question: string) {
-  const docs = getDocuments();
+  const chunks = getChunks();
 
   const queryWords = question.toLowerCase().split(/\W+/).filter(Boolean);
 
-  let bestDoc = null;
+  let bestChunk = null;
   let bestScore = 0;
 
-  for (const doc of docs) {
-    const content = doc.content.toLowerCase();
+  for (const chunk of chunks) {
+    const content = chunk.content.toLowerCase();
 
     const score = queryWords.reduce(
       (total, word) => total + (content.includes(word) ? 1 : 0),
@@ -30,9 +30,34 @@ export function findBestMatch(question: string) {
 
     if (score > bestScore) {
       bestScore = score;
-      bestDoc = doc;
+      bestChunk = chunk;
     }
   }
 
-  return bestDoc;
+  return bestChunk;
+}
+function getChunks() {
+  const docs = getDocuments();
+
+  const chunks: { source: string; content: string }[] = [];
+
+  for (const doc of docs) {
+    if (doc.content.includes("## ")) {
+      const sections = doc.content.split(/^## /gm).filter(Boolean);
+
+      for (const section of sections) {
+        chunks.push({
+          source: doc.name,
+          content: section.trim(),
+        });
+      }
+    } else {
+      chunks.push({
+        source: doc.name,
+        content: doc.content,
+      });
+    }
+  }
+
+  return chunks;
 }
