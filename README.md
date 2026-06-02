@@ -134,6 +134,41 @@ The initial implementation returned entire documents.
 After testing, retrieval was refactored to return smaller document sections, resulting in more focused and user-friendly answers.
 
 ---
+# AI Usage Explanation
+
+## Tools Used
+
+* ChatGPT (primary assistant for planning and implementation guidance)
+
+---
+
+## How AI Was Used
+
+AI was used as a development partner throughout the project for:
+
+* Designing the overall architecture of the knowledge bot
+* Structuring the retrieval logic
+* Defining the agentic-brain documentation format
+* Iteratively improving chunk-based retrieval logic
+* Refining API and UI structure
+
+---
+
+## Human Contributions
+
+The following decisions were made manually and iteratively:
+
+* Choosing a lightweight local retrieval approach instead of LLM or vector DB solutions
+* Debugging and improving retrieval accuracy (fixing issue where headings were returned instead of answers)
+* Refactoring document chunking strategy
+* Designing the final structure of agentic-brain (context, memory, evaluation)
+* Simplifying API response format for better UX
+
+---
+
+## Key Insight
+
+AI was used for acceleration and ideation, but all architectural decisions, trade-offs, and iterative improvements were made through manual engineering judgment.
 
 ## Future Improvements
 
